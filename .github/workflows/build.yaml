@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       max-parallel: 8
       matrix:
-        rosdistro: iron
+        rosdistro: ["iron", "humble", "rolling"]
         cuda_distro: ["base", "runtime", "devel"]
     steps:
       - uses: actions/checkout@v3
