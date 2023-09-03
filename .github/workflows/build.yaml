@@ -1,0 +1,21 @@
+name: "docker_build"
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+jobs:
+  docker_build:
+    name: docker build
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        rosdistro: iron
+        cuda_distro: ["base", "runtime", "devel"]
+    steps:
+      - uses: actions/checkout@v3
