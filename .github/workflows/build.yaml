@@ -99,4 +99,4 @@ jobs:
           targets: |
             ${{ matrix.rosdistro }}
           set: |
-            --set *.platform=${{ matrix.platform }}
+            *.platform=${{ matrix.platform }}
