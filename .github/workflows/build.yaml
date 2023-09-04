@@ -16,6 +16,7 @@ jobs:
       max-parallel: 8
       matrix:
         rosdistro: ["iron", "humble", "rolling"]
+        platform: ["linux/amd64", "linux/arm64/v8"]
     steps:
       - uses: actions/checkout@v3
       - uses: docker/setup-buildx-action@v2
@@ -97,3 +98,5 @@ jobs:
             ./docker-bake.hcl
           targets: |
             ${{ matrix.rosdistro }}
+          set: |
+            --set *.platform=${{ matrix.platform }}
