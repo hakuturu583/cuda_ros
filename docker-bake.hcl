@@ -19,7 +19,7 @@ target "base" {
 
 locals = {
   # ubuntu22_02_cuda_version = ["12.2.0", "12.1.1", "12.1.0", "12.0.1", "12.0.0", "11.8.0", "11.7.1"]
-  ubuntu22_02_cuda_version = ["12.2.0", "12.1.1", "12.0.1", "11.8.0", "11.7.1"]
+  ubuntu22_02_cuda_version = ["12.2.0", "11.8.0"]
   cuda_distro = ["devel", "runtime", "base"]
   l4t_base_devel = "nvcr.io/nvidia/l4t-cuda:12.2.2-devel-arm64-ubuntu22.04"
   l4t_base_runtime = "nvcr.io/nvidia/l4t-cuda:12.2.12-runtime"
