@@ -15,7 +15,16 @@ jobs:
       fail-fast: false
       max-parallel: 8
       matrix:
-        rosdistro: ["iron", "humble", "rolling"]
+        targets: [
+          "humble",
+          "iron",
+          "rolling",
+          "l4t-humble-devel",
+          "l4t-humble-runtime",
+          "l4t-iron-devel",
+          "l4t-iron-runtime",
+          "l4t-rolling-devel",
+          "l4t-rolling-runtime"]
         platform: ["linux/amd64", "linux/arm64/v8"]
     steps:
       - uses: actions/checkout@v3
@@ -97,6 +106,6 @@ jobs:
           files: |
             ./docker-bake.hcl
           targets: |
-            ${{ matrix.rosdistro }}
+            ${{ matrix.targets }}
           set: |
             *.platform=${{ matrix.platform }}
