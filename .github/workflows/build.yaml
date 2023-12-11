@@ -7,6 +7,40 @@ on:
     branches:
       - master
 jobs:
+  buld_lt4_image:
+    name: build images for l4t
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        targets: [
+          "l4t-humble-devel",
+          "l4t-humble-runtime",
+          "l4t-iron-devel",
+          "l4t-iron-runtime",
+          "l4t-rolling-devel",
+          "l4t-rolling-runtime"]
+        platform: ["linux/arm64/v8"]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/setup-buildx-action@v2
+      - uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - uses: docker/bake-action@v3
+        with:
+          push: true
+          workdir: .
+          files: |
+            ./docker-bake.hcl
+          targets: |
+            ${{ matrix.targets }}
+          set: |
+            *.platform=${{ matrix.platform }}
+            
   docker_build:
     name: docker build
     runs-on: ubuntu-latest
