@@ -40,7 +40,7 @@ jobs:
             ${{ matrix.targets }}
           set: |
             *.platform=${{ matrix.platform }}
-            
+
   docker_build:
     name: docker build
     runs-on: ubuntu-latest
@@ -52,13 +52,7 @@ jobs:
         targets: [
           "humble",
           "iron",
-          "rolling",
-          "l4t-humble-devel",
-          "l4t-humble-runtime",
-          "l4t-iron-devel",
-          "l4t-iron-runtime",
-          "l4t-rolling-devel",
-          "l4t-rolling-runtime"]
+          "rolling"]
         platform: ["linux/amd64", "linux/arm64/v8"]
     steps:
       - uses: actions/checkout@v3
