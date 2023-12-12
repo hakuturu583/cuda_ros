@@ -70,8 +70,13 @@ target "rolling" {
   group = ["rolling"]
 }
 
-target "l4t-humble-devel" {
+target "l4t-base" {
   inherits = ["base"]
+  platforms = ["linux/arm64/v8"]
+}
+
+target "l4t-humble-devel" {
+  inherits = ["l4t-base"]
   matrix = {}
   name = "l4t-humble-12_2_2-devel"
   tags = ["docker.io/hakuturu583/cuda_ros:lt4-humble-cuda-12.2.2-devel"]
@@ -83,7 +88,7 @@ target "l4t-humble-devel" {
 }
 
 target "l4t-humble-runtime" {
-  inherits = ["base"]
+  inherits = ["l4t-base"]
   matrix = {}
   name = "l4t-humble-12_2_12-runtime"
   tags = ["docker.io/hakuturu583/cuda_ros:lt4-humble-cuda-12.2.12-runtime"]
@@ -95,7 +100,7 @@ target "l4t-humble-runtime" {
 }
 
 target "l4t-iron-devel" {
-  inherits = ["base"]
+  inherits = ["l4t-base"]
   matrix = {}
   name = "l4t-iron-12_2_2-devel"
   tags = ["docker.io/hakuturu583/cuda_ros:lt4-iron-cuda-12.2.2-devel"]
@@ -107,7 +112,7 @@ target "l4t-iron-devel" {
 }
 
 target "l4t-iron-runtime" {
-  inherits = ["base"]
+  inherits = ["l4t-base"]
   matrix = {}
   name = "l4t-iron-12_2_12-runtime"
   tags = ["docker.io/hakuturu583/cuda_ros:lt4-iron-cuda-12.2.12-runtime"]
@@ -119,7 +124,7 @@ target "l4t-iron-runtime" {
 }
 
 target "l4t-rolling-devel" {
-  inherits = ["base"]
+  inherits = ["l4t-base"]
   matrix = {}
   name = "l4t-rolling-12_2_2-devel"
   tags = ["docker.io/hakuturu583/cuda_ros:lt4-rolling-cuda-12.2.2-devel"]
@@ -131,7 +136,7 @@ target "l4t-rolling-devel" {
 }
 
 target "l4t-rolling-runtime" {
-  inherits = ["base"]
+  inherits = ["l4t-base"]
   matrix = {}
   name = "l4t-rolling-12_2_12-runtime"
   tags = ["docker.io/hakuturu583/cuda_ros:lt4-rolling-cuda-12.2.12-runtime"]
