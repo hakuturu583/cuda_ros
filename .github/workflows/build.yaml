@@ -7,9 +7,9 @@ on:
     branches:
       - master
 jobs:
-  buld_lt4_image:
+  build_lt4_image:
     name: build images for l4t
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-arm
     timeout-minutes: 120
     strategy:
       fail-fast: false
@@ -43,7 +43,7 @@ jobs:
 
   docker_build:
     name: docker build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 120
     strategy:
       fail-fast: false
