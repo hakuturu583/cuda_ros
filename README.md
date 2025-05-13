@@ -24,3 +24,9 @@ All images support `linux/amd64` and `linux/arm64/v8` platform
 | ubuntu 22.04 | 12.0.1 |
 | ubuntu 22.04 | 12.2.0 |
 | ubuntu 22.04 | 12.2.0 |
+
+## How to use?
+
+```
+docker buildx bake -f docker-bake.hcl
+```
